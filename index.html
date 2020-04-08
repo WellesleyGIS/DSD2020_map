@@ -99,7 +99,7 @@
       mapboxgl.accessToken = 'pk.eyJ1IjoiZGIxMDEiLCJhIjoiY2sybTE1ZTRkMGQ1aDNjbTlrMjR1MXE2aCJ9.pU43e4_oKPdsSpD3o8ALJQ';
       var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: "mapbox://styles/db101/ck7z2gncn0ucs1ioago47b8dh", //YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
+        style: "mapbox://styles/db101/ck8rm5grg17jw1ioyuiyp2tnl", //YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
         center: [-71.3082318, 42.295105], // starting position [lng, lat]
         zoom: 9, // starting zoom
         transformRequest: transformRequest
@@ -136,7 +136,7 @@
 
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker({
-              color: 'purple'
+              color: 'blue'
             })
             .setLngLat([row.Longitude, row.Latitude])
             .setPopup(popup)
