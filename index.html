@@ -1,10 +1,18 @@
+<!-- 
+	HTML file for Mapbox web map that connects to a Google Sheet to load 
+	lat/long coordinates for point creation, as well as associated 
+	data that is loaded into the popups for the points.
+-->
+
 <!DOCTYPE html>
 <html>
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Replace with your title</title>
+
+    <!-- insert map title here -->
+    <title>Digital Scholarship Day Map</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
@@ -14,17 +22,21 @@
 
   </head>
   <style>
+
     body {
-      background: #404040;
+      background: #000000;
       margin: 0;
       padding: 0;
     }
 
 
     #map {
-      border-left: 1px solid #fff;
+      border-left: 50px solid #000000;
+      border-right: 50px solid #000000;
+      border-top: 20px solid #022776;
+      border-bottom: 20px solid #022776;
       position: absolute;
-      width: 100%;
+      width: 91%;
       top: 0;
       bottom: 0;
     }
@@ -49,7 +61,7 @@
     }
 
     .mapboxgl-popup-content h3 {
-      background: rgb(61, 59, 59);
+      background: rgb(0, 39, 118);
       text-align: center;
       color: #fff;
       margin: 0;
@@ -60,11 +72,13 @@
     }
 
     .mapboxgl-popup-content h4 {
+      border: 5px, solid #022776;
       margin: 0;
       display: block;
       padding: 10px 3px 10px 10px;
       font-weight: 400;
     }
+
 
     .mapboxgl-container {
       cursor: pointer;
@@ -77,6 +91,7 @@
     .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
       border-bottom-color: rgb(61, 59, 59);
     }
+
 
   </style>
 
@@ -95,13 +110,15 @@
         };
       };
 
-      //YOUR TURN: add your Mapbox access token 
+      // insert Mapbox API token below
       mapboxgl.accessToken = 'pk.eyJ1IjoiZGIxMDEiLCJhIjoiY2sybTE1ZTRkMGQ1aDNjbTlrMjR1MXE2aCJ9.pU43e4_oKPdsSpD3o8ALJQ';
       var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: "mapbox://styles/db101/ck8rm5grg17jw1ioyuiyp2tnl", //YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
-        center: [-71.3082318, 42.295105], // starting position [lng, lat]
-        zoom: 9, // starting zoom
+        // insert the code for the Mapbox map style you want to use below
+        // (https://docs.mapbox.com/api/maps/#styles)
+        style: "mapbox://styles/db101/ck8rm5grg17jw1ioyuiyp2tnl",
+        center: [-71.3082318, 42.295105], // starting map position [lng, lat]
+        zoom: 5, // starting zoom
         transformRequest: transformRequest
       });
 
@@ -113,13 +130,14 @@
       // Initialize Tabletop to access your table
       function init() {
         Tabletop.init({
-          // YOUR TURN: change 'key' value to point to your spreadsheet
+          // insert Google Spreehsheet link below
           key: 'https://docs.google.com/spreadsheets/d/1PUCLjRI48Z6hfY24CJ3ko_d4LAJ6RkbXmlOO6sjZVUA/edit?usp=sharing',
           // once Tabletop has loaded the data, it passes it to the 'callback' function, 'addPoints', defined below
           callback: addPoints,
           simpleSheet: true
         });
       }
+
 
 
       // create a function called addPoints that iterates through your table (row by row) to create markers and popups
@@ -134,9 +152,10 @@
             .setHTML(`<h3>` + row.Category + `</h3>` + '<h4>' + '<b>' + 'Location: ' + '</b>' + row.TownCity + ', ' + row.StateCountry + '</h4>' + '<h4>' + '<b>' + 'Sounds: ' + '</b>' + row.Sounds + '</h4>'); // use the table to populate your popup with text
 
 
+
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker({
-              color: 'blue'
+              color: '#022776'
             })
             .setLngLat([row.Longitude, row.Latitude])
             .setPopup(popup)
@@ -145,6 +164,7 @@
 
         });
       }
+
 
     </script>
   </body>
