@@ -24,23 +24,22 @@
   <style>
 
     body {
-      background: #000000;
+      background: #fff;
       margin: 0;
       padding: 0;
     }
 
 
     #map {
-      border-left: 50px solid #000000;
-      border-right: 50px solid #000000;
-      border-top: 20px solid #022776;
-      border-bottom: 20px solid #022776;
+      border-left: 20px solid #000000;
+      border-right: 20px solid #000000;
+      border-top: 20px solid #000000;
+      border-bottom: 20px solid #000000;
       position: absolute;
-      width: 91%;
+      width: 98%;
       top: 0;
       bottom: 0;
     }
-
 
     .mapboxgl-popup {
       padding-bottom: 5px;
@@ -97,7 +96,31 @@
 
   <body>
 
+  	<!-- Add Mapbox map to Webpage (takes up the entire page)
+  	-->
     <div id="map"></div>
+
+    <!-- Add trasparent box
+    -->
+	<div style="position: absolute; top: 119px; left: 20px; width: 400px; height: 100%; background-color: #000000; opacity: 0.75"></div>
+
+
+    <!-- Add DSD logo to the bottom of the Webpage
+    -->
+    <div style="position: absolute; top: 20px; left: 20px; width:400px; height: 100px; opacity: 0.75"><img src="https://lh3.googleusercontent.com/kiwQn7xobVfRi0xP8A8sdXyN6qrV6ENOeYLRwGGImCwpYKg2Hbvs9Xj4TPQAHUX4-0CsdncnmP8jcACY_xQGMRJZrOPMw235SlPzfPayv7Ys4A3nEFJTDq4XPRB2EJ15CWh-uPdy4PzoP742gIze1W9dpF-u9Cb6hnVhwcJwstqnXVI1TD7jS01qlcO8lLcBADN-ekMeRQbKHjHyOxu4TW6Ljf6r5jglHbQ2xcZsv23qohb9KxphG-jIqrMLQQuwzHV-XnNGs-Mznhe5eEaUI9AlDXtaJ2Dqz18wl5AHoGGs6IfhUMUjbK35oqrnmhpTaWJIrWn4Ut8RJ1IffiYB6_k6MS8_JBkuWrX_hQkBMt35lnZv0yvPCrUpJYc4PVch08iZiSgNHcAXtL1yUET0_R9DAjxGTt-RgjZ4nJ_fWvBKUT9FzC2EYi075KH1VHb9OzByh49q_82E5AerTbVmvi8p5qxSSF6y8kQqWJajjy_7OyIdNBxLNhInTgdNBRf3wTy7koAMv3JNUIT5Ejcjl10ayn-a5vxGBTnl_uwDIUH8dUaSPtPHTIGMHVJuya_WmJOSqeFmzmzW6vmAIUec2ARqI5xjt1BtLTFO0AA7uEmNLLsQvXvi-I4hcGdWxpo-KVUQtg4aDolBVkrGksjDVe8l2ngXAAu0Hp8Tjq5vJwlj8AixCPAMPC8uiSjkaw=w920-h230-no" alt="DSD logo" width="400" height="100"> </div>
+
+    
+
+    <!-- Add text to the Webpage
+    -->
+   	 <!--
+	<div style="position: absolute; top: 150px; left: 30px; width: 350px; color: #fff; "><p>This map is a representation of Wellesley today. We asked Wellesley College community members to answer a survey to help us capture a snapshop of Wellesley College during this unprecedented time.<p>
+  	</p></div>
+		-->
+
+
+	<!-- Mapbox code
+    -->
     <script>
       var transformRequest = (url, resourceType) => {
         var isMapboxRequest =
@@ -117,7 +140,7 @@
         // insert the code for the Mapbox map style you want to use below
         // (https://docs.mapbox.com/api/maps/#styles)
         style: "mapbox://styles/db101/ck8rm5grg17jw1ioyuiyp2tnl",
-        center: [-71.3082318, 42.295105], // starting map position [lng, lat]
+        center: [-80, 42.295105], // starting map position [lng, lat]
         zoom: 5, // starting zoom
         transformRequest: transformRequest
       });
