@@ -20,6 +20,12 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
     <link rel="stylesheet" href="style.css">
 
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- Raleway Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
   </head>
   <style>
 
@@ -50,13 +56,13 @@
     }
 
     .mapboxgl-popup-content {
-      font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+      font: 400 15px/22px Verdana, Geneva, sans-serif;
       padding: 0;
       width: 250px;
     }
 
     .mapboxgl-popup-content-wrapper {
-      padding: 1%;
+      padding: 5%;
     }
 
     .mapboxgl-popup-content h3 {
@@ -65,17 +71,27 @@
       color: #fff;
       margin: 0;
       display: block;
+      font-family: 'Raleway', sans-serif;
       padding: 15px;
       font-weight: 700;
       margin-top: -5px;
     }
 
     .mapboxgl-popup-content h4 {
-      border: 5px, solid #022776;
+      color: #022776;
       margin: 0;
       display: block;
-      padding: 10px 3px 10px 10px;
+      font-family: 'Montserrat', sans-serif;
+      padding: 3px 10px 0px 10px;
       font-weight: 400;
+    }
+
+    .mapboxgl-popup-content h5 {
+      margin: 0;
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      padding: 3px 10px 3px 10px;
+      font-weight: 300;
     }
 
 
@@ -105,9 +121,15 @@
 	<div style="position: absolute; top: 119px; left: 20px; width: 400px; height: 100%; background-color: #000000; opacity: 0.75"></div>
 
 
-    <!-- Add DSD logo to the bottom of the Webpage
+    <!-- Add DSD logo to the top left of the Webpage
     -->
-    <div style="position: absolute; top: 20px; left: 20px; width:400px; height: 100px; opacity: 0.75"><img src="https://lh3.googleusercontent.com/kiwQn7xobVfRi0xP8A8sdXyN6qrV6ENOeYLRwGGImCwpYKg2Hbvs9Xj4TPQAHUX4-0CsdncnmP8jcACY_xQGMRJZrOPMw235SlPzfPayv7Ys4A3nEFJTDq4XPRB2EJ15CWh-uPdy4PzoP742gIze1W9dpF-u9Cb6hnVhwcJwstqnXVI1TD7jS01qlcO8lLcBADN-ekMeRQbKHjHyOxu4TW6Ljf6r5jglHbQ2xcZsv23qohb9KxphG-jIqrMLQQuwzHV-XnNGs-Mznhe5eEaUI9AlDXtaJ2Dqz18wl5AHoGGs6IfhUMUjbK35oqrnmhpTaWJIrWn4Ut8RJ1IffiYB6_k6MS8_JBkuWrX_hQkBMt35lnZv0yvPCrUpJYc4PVch08iZiSgNHcAXtL1yUET0_R9DAjxGTt-RgjZ4nJ_fWvBKUT9FzC2EYi075KH1VHb9OzByh49q_82E5AerTbVmvi8p5qxSSF6y8kQqWJajjy_7OyIdNBxLNhInTgdNBRf3wTy7koAMv3JNUIT5Ejcjl10ayn-a5vxGBTnl_uwDIUH8dUaSPtPHTIGMHVJuya_WmJOSqeFmzmzW6vmAIUec2ARqI5xjt1BtLTFO0AA7uEmNLLsQvXvi-I4hcGdWxpo-KVUQtg4aDolBVkrGksjDVe8l2ngXAAu0Hp8Tjq5vJwlj8AixCPAMPC8uiSjkaw=w920-h230-no" alt="DSD logo" width="400" height="100"> </div>
+    <div style="position: absolute; top: 20px; left: 20px; width:400px; height: 100px; opacity: 0.75"><img src="https://lh3.googleusercontent.com/kiwQn7xobVfRi0xP8A8sdXyN6qrV6ENOeYLRwGGImCwpYKg2Hbvs9Xj4TPQAHUX4-0CsdncnmP8jcACY_xQGMRJZrOPMw235SlPzfPayv7Ys4A3nEFJTDq4XPRB2EJ15CWh-uPdy4PzoP742gIze1W9dpF-u9Cb6hnVhwcJwstqnXVI1TD7jS01qlcO8lLcBADN-ekMeRQbKHjHyOxu4TW6Ljf6r5jglHbQ2xcZsv23qohb9KxphG-jIqrMLQQuwzHV-XnNGs-Mznhe5eEaUI9AlDXtaJ2Dqz18wl5AHoGGs6IfhUMUjbK35oqrnmhpTaWJIrWn4Ut8RJ1IffiYB6_k6MS8_JBkuWrX_hQkBMt35lnZv0yvPCrUpJYc4PVch08iZiSgNHcAXtL1yUET0_R9DAjxGTt-RgjZ4nJ_fWvBKUT9FzC2EYi075KH1VHb9OzByh49q_82E5AerTbVmvi8p5qxSSF6y8kQqWJajjy_7OyIdNBxLNhInTgdNBRf3wTy7koAMv3JNUIT5Ejcjl10ayn-a5vxGBTnl_uwDIUH8dUaSPtPHTIGMHVJuya_WmJOSqeFmzmzW6vmAIUec2ARqI5xjt1BtLTFO0AA7uEmNLLsQvXvi-I4hcGdWxpo-KVUQtg4aDolBVkrGksjDVe8l2ngXAAu0Hp8Tjq5vJwlj8AixCPAMPC8uiSjkaw=w920-h230-no" alt="Digital Scholarship Day 2020 logo" width="400" height="100"> </div>
+
+    
+
+     <!-- Add text to left side of web page
+    -->
+    <div style="position: absolute; top: 125px; left: 20px; width:400px; height: 400px"><img src="https://lh3.googleusercontent.com/a_2YlnN0vi0j896xr4SUaZVenvM758HrKuCvN09hx50Jd2bkf4k_pbVQbLH0APHtwGxfgi4wQBKr6b7JtRvCPRgA08_KnRvn_uLiMgTbyScv8l1N552dWubtJ_iDTEoBpvwz7F6sOEsrpOeNXebWldVhC8RxfnZSczGOldJ-4k7IPGw9L1EyLBf22h2OaAM1IQaFawsttjrJhL2wUMOoEfjCTtVCgmrwcsCMoz3gyEqgg9Ytz6k4dmYKUOyr-4uweUUJuv0ZYatyqdbi8hrotFLesJO1TmB3ZlK6FrKgacxo_W78y0TMth5W6k2NnbZsLkT9iuzJw7CuZ9e82uyBid3B7rW5OxdZKBO1b7dedVb_uXoNo_Dk08jO_t9zlidOkh2tODKQ024vpVrdEfa2c4WL2xcH9_0QFMjZ5fKjbhxg101BTmUnzCKn3HZYMGSSyYtpX9E1eOE0b0s-reDtGaqLHalXTgkxqRQg2WuZ_DTa4KoBSy-VNB0sSyYZm9dlmxur53Mq8OWLb3rOEgQtLzkkNAM28zwtoKQGNp4jZmDHAHibBny3V94ruuq9JcOf8DAD4_ESKVSK4QrdlvbbKT-sy-9X4bKosIk1cTUygwYRLBU_1tUUvUYgNMosJ9Y9DaaXPskgxtZF9ukJR1ONPUIN4bVnU79sOUYgZmjsw6tANZTk1JYSoyCu58zyaNom9i51u0aAoiWrDgWsFkF4ypCUILuDwnxb5XU7RMJDkKgP1EwcxiaWpKQ=w661-h519-no" alt="PUT ALT TEXT HERE" width="400" height="400"> </div>
 
     
 
@@ -172,7 +194,7 @@
 
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
-            .setHTML(`<h3>` + row.Category + `</h3>` + '<h4>' + '<b>' + 'Location: ' + '</b>' + row.TownCity + ', ' + row.StateCountry + '</h4>' + '<h4>' + '<b>' + 'Sounds: ' + '</b>' + row.Sounds + '</h4>'); // use the table to populate your popup with text
+            .setHTML(`<h3>` + row.Category + `</h3>` + '<h4>' + 'Class Color: ' + '</h4>' + '<h5>' + row.ClassColor + '</h5>' + '<h4>' + 'What sounds do you hear outside? ' + '</h4>' + '<h5>' + row.Sounds + '</h5>' + '<h4>' + 'What kinds of animals do you see outside? ' + '</h4>' + '<h5>' +  row.Animals + '</h5>'); // use the table to populate your popup with text
 
 
 
